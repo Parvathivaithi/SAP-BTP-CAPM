@@ -1,0 +1,225 @@
+{
+ "meta": {
+  "creator": "cds-dk 9.8.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "API_BUSINESS_SITUATION_SRV": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "API_BUSINESS_SITUATION_SRV.A_SitnDataContext": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Situation Data Context",
+   "elements": {
+    "SitnDataContextID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 32,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Data Context ID",
+     "notNull": true
+    },
+    "SitnInstceActivityID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity UUID",
+     "@sap.quickinfo": "Unique ID of Situation Instance Activity"
+    },
+    "SitnInstanceID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Instance ID"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+    },
+    "SitnInstceAnchorObjectKey": {
+     "type": "cds.String",
+     "length": 70,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Anchor Obj. Key",
+     "@sap.quickinfo": "Anchor Object Key"
+    },
+    "SitnInstceTriggerObjectKey": {
+     "type": "cds.String",
+     "length": 70,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Trigger Obj. Key",
+     "@sap.quickinfo": "Trigger Object Key"
+    },
+    "SitnInstceStatus": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Instance Status"
+    },
+    "SitnInstceActyType": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity Type",
+     "@sap.quickinfo": "Instance Activity Type"
+    },
+    "SitnDefinitionID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Situation Type ID"
+    },
+    "SitnDefTemplateID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Sitn Template ID",
+     "@sap.quickinfo": "Situation Standard Template ID"
+    },
+    "SitnActionID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Action ID"
+    },
+    "SitnDataContext": {
+     "type": "cds.String",
+     "@sap.label": "Data Context Data",
+     "@sap.quickinfo": "Situation Data Context Data"
+    }
+   }
+  },
+  "API_BUSINESS_SITUATION_SRV.A_SitnInstance": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Situation Instance",
+   "elements": {
+    "SitnInstanceID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 32,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Instance ID",
+     "notNull": true
+    },
+    "SitnDefinitionID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Situation Type ID"
+    },
+    "SitnInstceAnchorObjectKey": {
+     "type": "cds.String",
+     "length": 70,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Anchor Obj. Key",
+     "@sap.quickinfo": "Anchor Object Key"
+    },
+    "SitnInstceTriggerObjectKey": {
+     "type": "cds.String",
+     "length": 70,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Trigger Obj. Key",
+     "@sap.quickinfo": "Trigger Object Key"
+    },
+    "SitnInstceStatus": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Instance Status"
+    },
+    "SitnInstceStage": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Stage of Instance"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+    },
+    "SitnDefAnchorObject": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Anchor Object",
+     "@sap.quickinfo": "Situation Anchor Object Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SitnDefTemplateID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Sitn Template ID",
+     "@sap.quickinfo": "Situation Standard Template ID"
+    }
+   }
+  },
+  "API_BUSINESS_SITUATION_SRV.SendActionStatusReturn": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "SitnActionInstanceID": {
+     "type": "cds.String",
+     "length": 36,
+     "@sap.label": "Action Inst. ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "API_BUSINESS_SITUATION_SRV.SendActionStatus": {
+   "kind": "action",
+   "@cds.external": true,
+   "params": {
+    "SitnActionInstanceID": {
+     "type": "cds.String",
+     "length": 36,
+     "@sap.label": "Unique action instance ID generated by the service client"
+    },
+    "SitnActionID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "ActionID defined by situation template, NO_ACTION or UNKNOWN"
+    },
+    "SitnActionStatus": {
+     "type": "cds.String",
+     "length": 7,
+     "@sap.label": "Action status: SUCCESS or FAILURE"
+    },
+    "SitnInstanceID": {
+     "type": "cds.String",
+     "length": 32,
+     "@sap.label": "Situation instance ID for which the action was performed"
+    },
+    "SitnInstceTargetStatus": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Target instance status: OP(Open) RE(Resolved) UN(Unchanged)"
+    }
+   },
+   "returns": {
+    "type": "API_BUSINESS_SITUATION_SRV.SendActionStatusReturn"
+   }
+  }
+ }
+}

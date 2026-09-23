@@ -1,0 +1,215 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "ta.training",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.24.0",
+      "toolsId": "9e75fb14-d2c1-4a4f-b3f2-28bc5e2991db"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/training/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "training-display": {
+          "semanticObject": "training",
+          "action": "display",
+          "title": "{{training-display.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.148.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ta.training.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "EnrollmentsList",
+          "target": [
+            "EnrollmentsList"
+          ]
+        },
+        {
+          "pattern": "Enrollments({key}):?query:",
+          "name": "EnrollmentsObjectPage",
+          "target": [
+            "EnrollmentsList",
+            "EnrollmentsObjectPage"
+          ]
+        },
+        {
+          "pattern": "Enrollments({key})/TraineeAssessment({key2}):?query:",
+          "name": "traineeAssObjectPage",
+          "target": [
+            "EnrollmentsList",
+            "EnrollmentsObjectPage",
+            "traineeAssObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "EnrollmentsList": {
+          "type": "Component",
+          "id": "EnrollmentsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Enrollments",
+              "variantManagement": "None",
+              "navigation": {
+                "Enrollments": {
+                  "detail": {
+                    "route": "EnrollmentsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "EnrollmentsObjectPage": {
+          "type": "Component",
+          "id": "EnrollmentsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Enrollments",
+              "navigation": {
+                "TraineeAssessment": {
+                  "detail": {
+                    "route": "traineeAssObjectPage"
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Enrollments({key})"
+        },
+        "traineeAssObjectPage": {
+          "type": "Component",
+          "id": "traineeAssObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Enrollments/TraineeAssessment"
+            }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/Enrollments({key})/TraineeAssessment({key2})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "Training_Application.service"
+  }
+}

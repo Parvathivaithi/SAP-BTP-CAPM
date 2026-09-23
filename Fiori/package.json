@@ -1,0 +1,36 @@
+{
+  "name": "Fiori",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.9.1",
+    "@sap/xssec": "^4",
+    "sqlite": "^5.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
+    "cds-plugin-ui5": "^0.13.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-fiori": "cds watch --open fa.fiori/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/fiori"
+  ],
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked"
+      },
+      "destinations": true,
+      "html5-repo": true,
+      "workzone": true
+    }
+  }
+}

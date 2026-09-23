@@ -1,0 +1,190 @@
+{
+	"_version": "1.83.0",
+	"sap.app": {
+		"id": "dealer",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			]
+		},
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:lrop",
+			"version": "1.22.0",
+			"toolsId": "fbc03d0c-3327-42fe-a9e1-bef4850f0ef8"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/vehicle-api/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "4.01"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"dealer-display": {
+					"semanticObject": "dealer",
+					"action": "display",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					}
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.146.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.fe.templates": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "dealer.i18n.i18n",
+					"supportedLocales": [
+						""
+					]
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties",
+				"settings": {
+					"supportedLocales": [
+						""
+					]
+				}
+			}
+		},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {},
+			"routes": [
+				{
+					"pattern": ":?query:",
+					"name": "vehiclesList",
+					"target": "vehiclesList"
+				},
+				{
+					"pattern": "vehicles({key}):?query:",
+					"name": "vehiclesObjectPage",
+					"target": "vehiclesObjectPage"
+				}
+			],
+			"targets": {
+				"vehiclesList": {
+					"type": "Component",
+					"id": "vehiclesList",
+					"name": "sap.fe.templates.ListReport",
+					"options": {
+						"settings": {
+							"contextPath": "/vehicles",
+							"variantManagement": "Page",
+							"navigation": {
+								"vehicles": {
+									"detail": {
+										"route": "vehiclesObjectPage"
+									}
+								}
+							},
+							"controlConfiguration": {
+								"@com.sap.vocabularies.UI.v1.LineItem": {
+									"tableSettings": {
+										"type": "ResponsiveTable"
+									}
+								}
+							},
+							"initialLoad": "Enabled",
+							"content": {
+								"header": {
+									"actions": {
+										"getcontroller": {
+											"press": "dealer.ext.controller.getcontroller.getLatLongitude",
+											"visible": true,
+											"enabled": true,
+											"requiresSelection": false,
+											"text": "get Lat"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"vehiclesObjectPage": {
+					"type": "Component",
+					"id": "vehiclesObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"editableHeaderContent": false,
+							"contextPath": "/vehicles"
+						}
+					}
+				}
+			}
+		},
+		"flexBundle": false
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.fe": {
+		"app": {
+			"enableLazyLoading": true
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "DealerDetail.service"
+	}
+}

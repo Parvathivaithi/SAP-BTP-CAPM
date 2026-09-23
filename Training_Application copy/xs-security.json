@@ -1,0 +1,66 @@
+{
+ "xsappname": "xsuaa-training",
+ "tenant-mode": "dedicated",
+ "oauth2-configuration": {
+  "redirect-uris": [
+   "http://localhost:5000/**",
+   "https://*.cfapps.us10.hana.ondemand.com/**",
+   "https://*.applicationstudio.cloud.sap/**"
+  ]
+ },
+ "scopes": [
+  {
+   "name": "$XSAPPNAME.Employee",
+   "description": "Employee"
+  },
+  {
+   "name": "$XSAPPNAME.Manager",
+   "description": "Manager"
+  },
+  {
+   "name": "$XSAPPNAME.Administrator",
+   "description": "Administrator"
+  },
+  {
+   "name": "$XSAPPNAME.jobscheduler",
+   "description": "Job Scheduler access",
+   "grant-as-authority-to-apps": [
+    "$XSSERVICENAME(Job_Training)"
+   ]
+  }
+ ],
+ "attributes": [],
+ "role-templates": [
+  {
+   "name": "JobSchedulerRole",
+   "description": "Role for scheduler",
+   "scope-references": [
+    "$XSAPPNAME.jobscheduler"
+   ]
+  },
+  {
+   "name": "Employee",
+   "description": "generated",
+   "scope-references": [
+    "$XSAPPNAME.Employee"
+   ],
+   "attribute-references": []
+  },
+  {
+   "name": "Manager",
+   "description": "generated",
+   "scope-references": [
+    "$XSAPPNAME.Manager"
+   ],
+   "attribute-references": []
+  },
+  {
+   "name": "Administrator",
+   "description": "generated",
+   "scope-references": [
+    "$XSAPPNAME.Administrator"
+   ],
+   "attribute-references": []
+  }
+ ]
+}

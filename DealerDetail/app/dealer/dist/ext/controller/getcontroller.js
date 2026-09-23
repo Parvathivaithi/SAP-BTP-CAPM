@@ -1,0 +1,2 @@
+sap.ui.define(["sap/m/MessageToast"],function(t){"use strict";return{getLatLongitude:function(n,e){t.show("Custom handler invoked.")},getLatLongitude:function(n,e){t.show("Custom handler invoked.")},getLatLongitude:function(n,e){t.show("Custom handler invoked.")},getLatLongitude:function(n,e){t.show("Custom handler invoked.")}}});
+//# sourceMappingURL=getcontroller.js.map

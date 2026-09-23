@@ -1,0 +1,4 @@
+ID,firstName,lastName,email,phone,creditCardNo,createdAt,createdBy,modifiedAt,modifiedBy
+1004155,Daniel,Watts,daniel.watts@demo.com,+39-555-123,1234-5678,2024-01-01T10:00:00Z,admin,2024-01-01T10:00:00Z,admin
+1004161,Stormy,Weathers,stormy.weathers@demo.com,+49-020-022,0123-4567,2024-01-02T11:00:00Z,admin,2024-01-02T11:00:00Z,admin
+1004100,Sunny,Sunshine,sunny.sunshine@demo.com,+49-555-789,1234-5678,2024-01-03T12:00:00Z,admin,2024-01-03T12:00:00Z,admin

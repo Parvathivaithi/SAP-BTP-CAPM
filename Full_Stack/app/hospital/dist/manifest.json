@@ -1,0 +1,201 @@
+{
+	"_version": "1.84.0",
+	"sap.app": {
+		"id": "hm.hospital",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			]
+		},
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:lrop",
+			"version": "1.24.0",
+			"toolsId": "79915d4f-b2e0-490a-b6dd-16acbc31704d"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/entityapi/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "4.01"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"SemanticObject-ActionDisplay": {
+					"semanticObject": "SemanticObject",
+					"action": "ActionDisplay",
+					"title": "{{SemanticObject-ActionDisplay.flpTitle}}",
+					"subTitle": "{{SemanticObject-ActionDisplay.flpSubtitle}}",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					}
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.147.2",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.fe.templates": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "hm.hospital.i18n.i18n",
+					"supportedLocales": [
+						""
+					]
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties",
+				"settings": {
+					"supportedLocales": [
+						""
+					]
+				}
+			}
+		},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {},
+			"routes": [
+				{
+					"pattern": ":?query:",
+					"name": "hospitalList",
+					"target": "hospitalList"
+				},
+				{
+					"pattern": "hospital({key}):?query:",
+					"name": "hospitalObjectPage",
+					"target": "hospitalObjectPage"
+				},
+				{
+					"pattern": "hospital({key})/department({key2}):?query:",
+					"name": "departmentObjectPage",
+					"target": "departmentObjectPage"
+				}
+			],
+			"targets": {
+				"hospitalList": {
+					"type": "Component",
+					"id": "hospitalList",
+					"name": "sap.fe.templates.ListReport",
+					"options": {
+						"settings": {
+							"contextPath": "/hospital",
+							"variantManagement": "Page",
+							"navigation": {
+								"hospital": {
+									"detail": {
+										"route": "hospitalObjectPage"
+									}
+								}
+							},
+							"controlConfiguration": {
+								"@com.sap.vocabularies.UI.v1.LineItem": {
+									"tableSettings": {
+										"type": "ResponsiveTable"
+									}
+								}
+							}
+						}
+					}
+				},
+				"hospitalObjectPage": {
+					"type": "Component",
+					"id": "hospitalObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"editableHeaderContent": false,
+							"contextPath": "/hospital",
+							"navigation": {
+								"department": {
+									"detail": {
+										"route": "departmentObjectPage"
+									}
+								}
+							}
+						}
+					}
+				},
+				"departmentObjectPage": {
+					"type": "Component",
+					"id": "departmentObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"editableHeaderContent": false,
+							"contextPath": "/hospital/department"
+						}
+					}
+				}
+			}
+		},
+		"flexBundle": false
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.fe": {
+		"app": {
+			"enableLazyLoading": true
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "Full_Stack.service"
+	}
+}

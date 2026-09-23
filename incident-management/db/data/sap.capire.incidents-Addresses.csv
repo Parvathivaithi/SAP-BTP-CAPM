@@ -1,0 +1,3 @@
+ID,customer_ID,city,postCode,streetAddress,createdAt,createdBy,modifiedAt,modifiedBy
+d8e797d9-6507-4aaa-b43f-5d2301df5135,1004161,Munich,80809,Olympia Park,2024-01-01T10:00:00Z,admin,2024-01-01T10:00:00Z,admin
+ff13d2fa-e00f-4ee5-951c-3303f490777b,1004100,Walldorf,69190,Dietmar-Hopp-Allee,2024-01-02T11:00:00Z,admin,2024-01-02T11:00:00Z,admin

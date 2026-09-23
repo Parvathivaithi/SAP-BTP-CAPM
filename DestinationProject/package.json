@@ -1,0 +1,42 @@
+{
+  "name": "DestinationProject",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap-cloud-sdk/http-client": "^4.5.1",
+    "@sap-cloud-sdk/resilience": "^4.5.1",
+    "@sap/cds": "^9.8.4",
+    "@sap/xssec": "^4",
+    "sqlite": "^5.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9.8.3"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked"
+      },
+      "Desti": {
+        "kind": "odata-v4",
+        "credentials": {
+          "destination": "DestAPI"
+        }
+      },
+      "LatLon": {
+        "kind": "odata-v4",
+        "credentials": {
+          "destination": "Task6Service"
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
+}

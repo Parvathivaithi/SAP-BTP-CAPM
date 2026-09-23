@@ -1,0 +1,34 @@
+{
+  "name": "sideBySide",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^4.6.0",
+    "@sap-cloud-sdk/http-client": "^4.6.0",
+    "@sap-cloud-sdk/resilience": "^4.6.0",
+    "@sap/cds": "^9.8.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "API_BUSINESS_SITUATION_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_BUSINESS_SITUATION_SRV",
+        "credentials": {
+          "destination": "Dest2API"
+        }
+      },
+      "location": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "location"
+        }
+      }
+    }
+  }
+}

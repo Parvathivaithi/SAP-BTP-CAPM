@@ -1,0 +1,9 @@
+ID,CourseCode,Title,Description,Category_Category,Duration_Hours,Duration_Days,IsMandatory,ValidityMonths,MaxEnrollments,Trainer_ID
+
+"c4ffd1ab-e123-4b97-ab24-239b3d850cf6","CAP101","SAP CAP Basics","Introduction to SAP CAPM development","Technical","24","3","true","12","30","244c8aa9-fbd6-4e89-bf3f-552a19793f25"
+"8fb8b33d-102a-4381-b250-59b1a912306b","SEC201","Cyber Security Awareness","Security best practices for employees","Security","8","1","true","6","100","79d8c4c5-2bea-4dfa-9d1e-febd25b49e97"
+"88c3fd09-1dde-451f-baba-c2c43d091429","UI501","SAP UI5 Advanced","Advanced SAP UI5 and Fiori development","Technical","40","3","false","24","20","65b9f42f-87c1-4518-8234-445bbd914b07"
+"58e62b72-761e-48a4-af02-58fc4f9950bd","TRN-115","Diversity and Inclusion","Building an inclusive workplace culture and promoting diversity.","TECHNICAL","6","1","true","12","40","79d8c4c5-2bea-4dfa-9d1e-febd25b49e97"
+"7b071e20-c024-40ef-ad1f-1d561cfc7da5","TRN-114","Financial Planning for Managers","Understanding budgets, forecasts, and financial decision-making.","Finance","12","2","false","36","20","79d8c4c5-2bea-4dfa-9d1e-febd25b49e97"
+"4e6b47cf-d1bd-4309-b175-dc7ab4eb103e","TRN-115","Fiori","Frontend","TECHNICAL","12","1","false","36","20","79d8c4c5-2bea-4dfa-9d1e-febd25b49e97"
+

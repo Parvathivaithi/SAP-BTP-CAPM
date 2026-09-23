@@ -1,0 +1,7 @@
+ID,EmpNo,Name,Email,JobRole,ImageURL,Department_ID
+
+"c2661464-bb47-4afb-b225-b4c028331cc1","1002","Parvathi.V","parvathi.v@laderatechnology.com","Software Engineer","https://randomuser.me/api/portraits/women/2.jpg","5fc0f49d-1716-40ec-9f84-75bfa2ccd200"
+"c576b149-8615-4ef1-ad6d-320f80a972b9","1004","Keeri.B","keerthana.b@laderatechnology.com","Software Engineer","https://randomuser.me/api/portraits/women/4.jpg","b2ae3a58-d06b-40c7-9db9-da7db43bc782"
+"f5a802ba-2ae5-4923-9401-56315817c2a3","1001","AmalaVasanthi.C","amalavasanthi.c@laderatechnology.com","HR Manager","https://randomuser.me/api/portraits/women/1.jpg","39378ba7-a8e7-407d-8b40-c11e6a504f12"
+"6d3113b0-1ac0-4d83-b9be-b0f965986b04","1003","Ramila.S","ramila.s@laderatechnology.com","Software Engineer","https://randomuser.me/api/portraits/women/3.jpg","5fc0f49d-1716-40ec-9f84-75bfa2ccd200"
+

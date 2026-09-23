@@ -1,0 +1,11 @@
+ID,course_name,duration,Books_bookName,Books_author,validFrom,validTo
+1,SAP UI5,45 Days,Learning SAP UI5,John Miller,2026-01-01,2026-12-31
+2,CAPM,30 Days,CAP Programming Guide,David Lee,2026-02-01,2026-11-30
+3,SAP Fiori,40 Days,Fiori Fundamentals,Sarah Johnson,2026-03-01,2026-10-31
+4,HANA Modeling,50 Days,SAP HANA Deep Dive,Michael Brown,2026-04-01,2026-09-30
+5,ABAP,60 Days,Mastering ABAP,Raj Kumar,2026-05-01,2026-08-31
+6,OData Services,25 Days,OData Development,Emily Davis,2026-06-01,2026-12-15
+7,BTP,35 Days,SAP BTP Essentials,Chris Wilson,2026-07-01,2026-12-20
+8,Workflow Management,20 Days,SAP Workflow Basics,Nancy White,2026-08-01,2026-11-15
+9,Integration Suite,30 Days,Cloud Integration Concepts,Robert King,2026-09-01,2026-12-31
+10,SAP Security,55 Days,SAP Security Handbook,Daniel Scott,2026-10-01,2027-03-31 

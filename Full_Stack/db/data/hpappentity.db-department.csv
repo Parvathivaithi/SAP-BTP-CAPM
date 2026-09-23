@@ -1,0 +1,6 @@
+ID,department_name,floor_no,no_of_doctors,no_of_nurse,hospitalNo
+1,Cardiology,2,15,30,1
+2,Neurology,3,12,25,1
+3,Orthopedics,4,10,20,2
+4,Pediatrics,1,8,18,2
+5,Oncology,5,14,28,3
